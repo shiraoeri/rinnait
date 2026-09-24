@@ -89,7 +89,7 @@ function tick() {
   $("#lt").textContent = herClock;
   $("#ld").textContent =
     phoneContent.lockDate ||
-    n.toLocaleDateString([], { weekday: "long", month: "long", day: "numeric", timeZone: HER_TZ });
+    n.toLocaleDateString("en-GB", { weekday: "long", month: "long", day: "numeric", timeZone: HER_TZ });
   ["herT", "herT2", "herT3", "setHer"].forEach((id) => {
     const el = $("#" + id);
     if (el) el.textContent = herClock;
