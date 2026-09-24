@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>for Rinn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Great+Vibes&family=Italiana&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.cursors-4u.net/cursors/animated/tinkerbell-blue-glitter-wings-86681e17-32.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="world" id="world">
+      <img class="world__meadow" data-src="images.forest" src="assets/melody-meadow.jpg" alt="" />
+      <img class="world__clouds" data-src="images.clouds" src="assets/melody-clouds.jpg" alt="" />
+    </div>
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <img class="pixie" id="fairy" data-src="images.fairy" src="assets/pixie.png" alt="" hidden />
+
+    <div class="steps" id="steps" aria-hidden="true"></div>
+    <button type="button" class="page-back" id="pageBack" hidden>back</button>
+
+    <main>
+      <div class="mn-dim" id="mnDim"></div>
+      <div class="meadow-notch" id="meadowNotch" aria-hidden="true">
+        <i class="cam"></i>
+        <i class="dot"></i>
+        <div class="mn-play">
+          <img id="mnCover" alt="" />
+          <span class="mn-meta">
+            <b id="mnTitle"></b>
+            <small id="mnArtist"></small>
+          </span>
+          <div class="mn-controls">
+            <button type="button" id="mnPrev" aria-label="previous">⏮</button>
+            <button type="button" id="mnPlay" aria-label="play">▶</button>
+            <button type="button" id="mnNext" aria-label="next">⏭</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="panel is-on is-dusting" id="scene-open">
+        <div class="mail" id="mail">
+          <p class="for-you" id="forYou" data-text="load.forYou">For you Tinkerbell</p>
+          <button class="letter-card" id="envSeal" type="button" aria-label="open">
+            <span class="flap"></span>
+            <img class="wax" data-src="images.seal" src="assets/seal.png" alt="" />
+          </button>
+          <p class="hold" id="holdHint" data-text="load.tap">tap to open</p>
+        </div>
+      </section>
+
+      <section class="panel" id="scene-love">
+        <p class="for-you" data-text="load.love">I love you</p>
+        <button class="go" data-to="sky" data-text="load.loveNext">continue</button>
+      </section>
+
+      <section class="panel" id="scene-sky">
+        <p class="tiny" data-text="sky.kicker">same sky</p>
+        <h2 class="display" data-text="sky.title" data-mode="html">you’re far.<br />the moon’s still shared.</h2>
+        <div class="windows">
+          <div class="window">
+            <span data-text="sky.here">here</span>
+            <b id="clockHere">--:--</b>
+            <em data-text="sky.withYou">with you</em>
+          </div>
+          <div class="window window--her">
+            <span data-text="sky.there">there</span>
+            <b id="clockThere">--:--</b>
+            <em data-text="sky.thereTime">your night</em>
+          </div>
+        </div>
+        <p class="soft" data-text="sky.lede">long distance doesn’t cancel a first date. it just makes the showing-up part louder.</p>
+        <button class="go" data-to="story" data-text="sky.next">keep walking</button>
+      </section>
+
+      <section class="panel" id="scene-story">
+        <article class="spread">
+          <p class="tiny" data-text="story.kicker">chapter one</p>
+          <h2 class="display" data-text="story.title" data-mode="html"></h2>
+          <p class="soft" data-text="story.lede"></p>
+          <p class="tale" id="tale" data-text="story.body"></p>
+          <div class="page-nav">
+            <button class="ghost" type="button" data-to="sky" data-text="story.back">turn back</button>
+            <button class="go dark" data-to="color" data-text="story.next">turn the page</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="scene-color">
+        <p class="tiny" data-text="color.kicker">her magic</p>
+        <h2 class="display" data-text="color.title" data-mode="html"></h2>
+        <p class="soft" data-text="color.lede"></p>
+        <div class="picks">
+          <button class="pick pick--pink" data-tint="pink">
+            <img data-src="images.doorPink" src="assets/sky.jpg" alt="" />
+            <em data-text="color.pinkHint"></em>
+            <strong data-text="color.pinkLabel">pink</strong>
+          </button>
+          <button class="pick pick--blue" data-tint="blue">
+            <img data-src="images.doorBlue" src="assets/moon.jpg" alt="" />
+            <em data-text="color.blueHint"></em>
+            <strong data-text="color.blueLabel">blue</strong>
+          </button>
+        </div>
+      </section>
+
+      <section class="panel" id="scene-play">
+        <p class="tiny" data-text="play.kicker">the errand</p>
+        <h2 class="display" data-text="play.title" data-mode="html">fill the heart</h2>
+        <p class="soft" data-text="play.lede">tap until it glows. that’s how the meadow lets you in.</p>
+        <button class="well" id="well" aria-label="fill the heart">
+          <svg viewBox="0 0 32 29" class="well__svg">
+            <defs>
+              <clipPath id="hclip">
+                <path d="M16 27S1 16 1 8.5C1 4 4.5 1 8.5 1 12 1 14.5 3 16 6c1.5-3 4-5 7.5-5C27.5 1 31 4 31 8.5 31 16 16 27 16 27z" />
+              </clipPath>
+            </defs>
+            <path class="well__line" d="M16 27S1 16 1 8.5C1 4 4.5 1 8.5 1 12 1 14.5 3 16 6c1.5-3 4-5 7.5-5C27.5 1 31 4 31 8.5 31 16 16 27 16 27z" />
+            <rect id="wellFill" x="0" y="29" width="32" height="29" clip-path="url(#hclip)" fill="#f3b7d0" />
+          </svg>
+          <span id="wellHint" data-text="play.tap">tap me</span>
+        </button>
+        <button class="ghost" data-to="letter" data-text="play.skip">skip</button>
+      </section>
+
+      <section class="panel panel--scroll" id="scene-letter">
+        <p class="tiny" data-text="letter.kicker">the true part</p>
+        <article class="note">
+          <p class="letter" id="letter" data-text="letter.tap">open me.</p>
+          <p class="sign" data-text="signOff">me</p>
+          <button class="seal" id="seal" aria-label="open">
+            <img data-src="images.seal" src="assets/seal.png" alt="" />
+          </button>
+        </article>
+        <button class="go dark continue" data-next-ask data-text="letter.continue">keep going</button>
+      </section>
+
+      <section class="panel" id="scene-ask">
+        <p class="tiny" data-text="ask.kicker">the ask</p>
+        <h2 class="display" data-text="ask.title" data-mode="html"></h2>
+        <p class="soft" data-text="ask.lede"></p>
+        <div class="choices">
+          <button class="go" data-yes data-text="ask.yes">i’m in</button>
+          <button class="nah" data-no data-text="ask.no">nah</button>
+        </div>
+        <p class="mercy" hidden data-text="ask.mercy"></p>
+      </section>
+
+      <section class="panel" id="scene-date" hidden>
+        <p class="tiny" data-text="date.kicker">chapter two</p>
+        <h2 class="display" data-text="date.title" data-mode="html"></h2>
+        <p class="soft" data-text="date.lede"></p>
+        <p class="tiny" data-text="date.kindLabel">the date</p>
+        <div class="chips">
+          <button class="chip" data-kind="movie" data-text="date.kinds.movie"></button>
+          <button class="chip" data-kind="walk" data-text="date.kinds.walk"></button>
+          <button class="chip" data-kind="questions" data-text="date.kinds.questions"></button>
+        </div>
+        <p class="tiny" data-text="date.whenLabel">when</p>
+        <div class="chips">
+          <button class="chip" data-when="weeknight" data-text="date.whens.weeknight"></button>
+          <button class="chip" data-when="weekend" data-text="date.whens.weekend"></button>
+          <button class="chip" data-when="you" data-text="date.whens.you"></button>
+        </div>
+        <button class="go" data-lock data-text="date.lock">that’s our date</button>
+      </section>
+
+      <section class="panel" id="scene-yes" hidden>
+        <div class="kept">
+          <img data-src="images.finale" src="assets/storybook.jpg" alt="" />
+          <div>
+            <p class="tiny" data-text="yes.kicker">kept</p>
+            <h2 class="display" data-text="yes.title" data-mode="html"></h2>
+            <p class="picked"></p>
+            <p class="soft" id="app-line" data-text="yes.appLine"></p>
+            <p class="soft" data-text="yes.textMe"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="scene-kind" hidden>
+        <p class="tiny" data-text="kind.kicker"></p>
+        <h2 class="display" data-text="kind.title" data-mode="html"></h2>
+        <p class="soft" data-text="kind.lede"></p>
+      </section>
+    </main>
+
+    <div id="midGuides" class="mid-guides" hidden>
+      <i class="v"></i>
+      <i class="h"></i>
+    </div>
+    <button class="studio-tab" id="studioTab" type="button" title="edit meadow">edit</button>
+    <aside class="studio" id="studio" hidden>
+      <header>
+        <b>meadow</b>
+        <button type="button" id="studioClose">close</button>
+      </header>
+      <p class="studio-hint">mark words on the page, or inside a box. style hits only that mark.</p>
+      <div class="style-tool" id="styleTool">
+        <p class="mark-read" id="markRead">mark the words. only that part changes.</p>
+        <span class="style-lab">font</span>
+        <select id="fontPick">
+          <option value="">keep font</option>
+          <option value="Outfit, system-ui, sans-serif">Outfit</option>
+          <option value="'EB Garamond', Georgia, serif">Garamond</option>
+          <option value="'Playfair Display', Georgia, serif">Playfair</option>
+          <option value="'Cormorant Garamond', Georgia, serif">Cormorant</option>
+          <option value="Italiana, serif">Italiana</option>
+          <option value="'Great Vibes', cursive">Script</option>
+          <option value="'Caveat', cursive">Hand</option>
+        </select>
+        <span class="style-lab">size</span>
+        <select id="sizePick">
+          <option value="">keep size</option>
+          <option value="14px">14</option>
+          <option value="18px">18</option>
+          <option value="22px">22</option>
+          <option value="28px">28</option>
+          <option value="36px">36</option>
+          <option value="48px">48</option>
+          <option value="64px">64</option>
+          <option value="84px">84</option>
+        </select>
+        <label class="color-line">exact size <input id="sizeNum" type="number" min="12" max="160" step="1" value="46" /></label>
+        <div class="style-styles">
+          <button type="button" data-write="bold" title="bold"><b>B</b></button>
+          <button type="button" data-write="light" title="light">Lt</button>
+          <button type="button" data-write="italic" title="italic"><i>I</i></button>
+          <button type="button" data-write="underline" title="underline"><u>U</u></button>
+          <button type="button" data-write="caps" title="caps">Aa</button>
+          <button type="button" data-write="shadow" title="shadow">Sh</button>
+        </div>
+        <span class="style-lab">this line</span>
+        <div class="style-styles">
+          <button type="button" data-align="left">left</button>
+          <button type="button" data-align="center">middle</button>
+          <button type="button" data-align="right">right</button>
+        </div>
+        <span class="style-lab">place this line</span>
+        <div class="place-row">
+          <button type="button" id="sizeDown" title="smaller, one row down">−</button>
+          <button type="button" id="sizeUp" title="bigger, one row up">+</button>
+          <button type="button" id="rowUp" title="up one row">up</button>
+          <button type="button" id="rowDown" title="down one row">down</button>
+        </div>
+        <p class="place-note">drag the line on the page. the cross is the middle, across and down.</p>
+        <button type="button" class="style-clear" id="placeReset">put this line back</button>
+        <span class="style-lab">this text appears</span>
+        <select id="textEnter">
+          <option value="">blur (as now)</option>
+          <option value="appear">appear</option>
+          <option value="fade">fade</option>
+          <option value="fly-up">fly up</option>
+          <option value="fly-down">fly down</option>
+          <option value="fly-left">fly left</option>
+          <option value="fly-right">fly right</option>
+          <option value="float">float in</option>
+          <option value="zoom">zoom</option>
+          <option value="wipe">wipe</option>
+          <option value="bounce">bounce</option>
+          <option value="swivel">swivel</option>
+        </select>
+        <span class="style-lab">this text leaves</span>
+        <select id="textExit">
+          <option value="">with the page</option>
+          <option value="fade">fade</option>
+          <option value="fly-up">fly up</option>
+          <option value="fly-down">fly down</option>
+          <option value="fly-left">fly left</option>
+          <option value="fly-right">fly right</option>
+          <option value="zoom">zoom out</option>
+          <option value="disappear">disappear</option>
+        </select>
+        <span class="style-lab">this slide appears</span>
+        <select id="slideEnter">
+          <option value="">blur (as now)</option>
+          <option value="appear">appear</option>
+          <option value="fade">fade</option>
+          <option value="push">push</option>
+          <option value="wipe">wipe</option>
+          <option value="zoom">zoom</option>
+          <option value="dissolve">dissolve</option>
+        </select>
+        <span class="style-lab">this slide leaves</span>
+        <select id="slideExit">
+          <option value="">blur (as now)</option>
+          <option value="fade">fade</option>
+          <option value="push">push</option>
+          <option value="wipe">wipe</option>
+          <option value="zoom">zoom</option>
+          <option value="dissolve">dissolve</option>
+          <option value="disappear">disappear</option>
+        </select>
+        <span class="style-lab">ink</span>
+        <div class="swatches" id="inkSwatches"></div>
+        <label class="color-line">custom ink <input type="color" id="inkPick" value="#3a2a32" /></label>
+        <span class="style-lab">highlight</span>
+        <div class="swatches" id="hiSwatches"></div>
+        <button type="button" class="style-clear" id="styleClear">clear style on the mark</button>
+      </div>
+      <div class="studio-block">
+        <label id="skyLabel">wallpaper for this page</label>
+        <div class="sky-picker" id="skyPicker"></div>
+      </div>
+      <div id="pageOrder"></div>
+      <div class="studio-pages" id="studioPages"></div>
+      <div id="studioFields"></div>
+      <p class="studio-msg" id="studioMsg"></p>
+      <button type="button" class="studio-save" id="studioSave">save this page</button>
+    </aside>
+    <script src="content.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>studio — for her</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Outfit:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <section class="gate" id="gate">
+      <form class="gate-card" id="login">
+        <h1>studio</h1>
+        <p class="hint">
+          this is yours, not hers. default password is <b>pixiedust</b>. change it after you get in.
+        </p>
+        <label for="password">password</label>
+        <input id="password" type="password" autocomplete="current-password" autofocus />
+        <p class="err" id="err"></p>
+        <button class="primary" type="submit">open</button>
+      </form>
+    </section>
+
+    <div class="studio" id="studio">
+      <nav>
+        <h2>edit</h2>
+        <button data-go="voice" class="is-on">voice</button>
+        <button data-go="load">opening</button>
+        <button data-go="story">fairy tale</button>
+        <button data-go="color">colors</button>
+        <button data-go="play">the game</button>
+        <button data-go="letter">letter</button>
+        <button data-go="ask">the ask</button>
+        <button data-go="date">the date</button>
+        <button data-go="end">yes / no</button>
+        <button data-go="pictures">photos</button>
+        <button data-go="stickers">stickers</button>
+      </nav>
+
+      <main>
+        <section class="section is-on" id="sec-voice">
+          <h3>voice</h3>
+          <p class="lead">the small stuff that shows up everywhere. keep it slangy. don’t write her whole nickname in every box.</p>
+        </section>
+        <section class="section" id="sec-load">
+          <h3>opening</h3>
+          <p class="lead">first breath. tiny, not a speech.</p>
+        </section>
+        <section class="section" id="sec-story">
+          <h3>fairy tale</h3>
+          <p class="lead">chapter one. the made-up part. keep it sweet and a little slangy. don’t write tinkerbell in the title.</p>
+        </section>
+        <section class="section" id="sec-color">
+          <h3>colors</h3>
+          <p class="lead">the two doors. she already knows which one she’s picking.</p>
+        </section>
+        <section class="section" id="sec-play">
+          <h3>the game</h3>
+          <p class="lead">catch the little ones. bunnies, bear, dust.</p>
+        </section>
+        <section class="section" id="sec-letter">
+          <h3>letter</h3>
+          <p class="lead">the only page that should feel handwritten. one wink is enough.</p>
+        </section>
+        <section class="section" id="sec-ask">
+          <h3>the ask</h3>
+          <p class="lead">yes / nah. keep it casual.</p>
+        </section>
+        <section class="section" id="sec-date">
+          <h3>the date</h3>
+          <p class="lead">lock an hour, not a city.</p>
+        </section>
+        <section class="section" id="sec-end">
+          <h3>yes / no</h3>
+          <p class="lead">what she sees after she chooses.</p>
+        </section>
+        <section class="section" id="sec-pictures">
+          <h3>photos</h3>
+          <p class="lead">swap the doors and the last page. jpg/png. they’ll get compressed.</p>
+        </section>
+        <section class="section" id="sec-stickers">
+          <h3>stickers</h3>
+          <p class="lead">pixel bunny, hooded cutie, white bear, bell. upload your own if you want.</p>
+        </section>
+      </main>
+
+      <aside class="preview">
+        <iframe id="preview" title="live preview" src="index.html"></iframe>
+      </aside>
+
+      <div class="bar">
+        <button class="primary" id="save" type="button">save</button>
+        <button class="ghost" id="preview-btn" type="button">open site</button>
+        <button class="ghost" id="download" type="button">download json</button>
+        <label class="ghost file" style="display: inline-flex; align-items: center; gap: 8px">
+          import json
+          <input id="import" type="file" accept="application/json" hidden />
+        </label>
+        <button class="ghost" id="setpass" type="button">password</button>
+        <button class="danger" id="reset" type="button">reset</button>
+        <span class="status" id="status">unsaved</span>
+      </div>
+    </div>
+
+    <script src="content.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

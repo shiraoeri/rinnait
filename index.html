@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Rinn’s phone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Inter:wght@400;500;600&family=Nunito:wght@400;600&family=Playfair+Display:wght@500;600&family=Great+Vibes&family=Allura&family=Dancing+Script:wght@500;600&family=Cinzel:wght@500;600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  </head>
+  <body class="booting">
+    <div class="boot" id="boot">
+      <button type="button" class="boot-skip" id="bootSkip">skip</button>
+      <div class="boot-lines" id="bootLog"></div>
+    </div>
+    <div class="studio" id="studio">
+      <div class="studio-wall"></div>
+      <div class="studio-table" aria-hidden="true"></div>
+      <div class="studio-rain" aria-hidden="true"></div>
+      <div class="studio-motes" id="studioMotes" aria-hidden="true"></div>
+    </div>
+    <div class="np-wash" id="npWash" aria-hidden="true"></div>
+    <div class="blackout" id="blackout" aria-hidden="true"></div>
+    <p class="sig frame-none sig-light" id="sigName">Rinn</p>
+    <div class="desk-stickers" id="deskStickers"></div>
+    <i class="firefly" id="firefly" aria-hidden="true"></i>
+
+    <div class="stage">
+      <div class="rig">
+        <div class="fixture" aria-hidden="true">
+          <i class="mount"></i>
+          <i class="stand"></i>
+          <span class="shade"><i class="bulb"></i></span>
+        </div>
+        <div class="cone" aria-hidden="true"></div>
+      <div class="phone-wrap" id="wrap">
+        <i class="hw-btn b-up" aria-hidden="true"></i>
+        <i class="hw-btn b-down" aria-hidden="true"></i>
+        <button type="button" class="hw-btn b-power" id="powerBtn" aria-label="lamp"></button>
+      <div class="phone mat-titanium" id="phone">
+        <div class="recess"></div>
+        <div class="glass">
+        <div class="screen-wp" aria-hidden="true"></div>
+        <div class="wake-veil" id="wakeVeil" aria-hidden="true"></div>
+        <div class="notch" id="notch">
+          <button type="button" class="island" id="island">
+            <img class="cover song-cover" src="assets/cover-die-with-a-smile.jpg" alt="" />
+            <span class="island-copy">
+              <b id="islandTitle">Die With A Smile</b>
+              <small id="islandArtist">Lady Gaga, Bruno Mars</small>
+            </span>
+            <span class="island-eq" aria-hidden="true"><i></i><i></i><i></i></span>
+          </button>
+          <div class="mini" id="mini">
+            <div class="mini-art">
+              <img class="cover cover-lg song-cover" src="assets/cover-die-with-a-smile.jpg" alt="" />
+            </div>
+            <div class="mini-meta">
+              <b id="miniTitle">Die With A Smile</b>
+              <small id="miniArtist">Lady Gaga, Bruno Mars</small>
+            </div>
+            <div class="mini-controls">
+              <button type="button" id="miniPrev" aria-label="previous">⏮</button>
+              <button type="button" id="miniPlay" aria-label="pause">❚❚</button>
+              <button type="button" id="miniNext" aria-label="next">⏭</button>
+            </div>
+          </div>
+          <div class="faceid" id="faceid" aria-hidden="true"><i></i></div>
+        </div>
+        <iframe id="yt" class="yt-audio" title="now playing" src="" allow="autoplay; encrypted-media"></iframe>
+        <div class="bar"><span id="t">9:41</span><span>5G ●●●●</span></div>
+        <div class="banner" id="banner"></div>
+
+        <div class="cc" id="cc">
+          <div class="cc-row">
+            <div class="cc-stack">
+              <button type="button" class="cc-btn on" id="ccWifi">Wi-Fi</button>
+              <button type="button" class="cc-btn on" id="ccBt">Bluetooth</button>
+            </div>
+            <div class="cc-stack">
+              <button type="button" class="cc-btn" id="flash">Flash</button>
+              <button type="button" class="cc-btn" id="ccFocus">Focus</button>
+            </div>
+          </div>
+          <input class="cc-slide" id="bright" type="range" min="60" max="140" value="100" />
+          <button type="button" class="cc-now" id="ccNow">
+            <img class="cover song-cover" src="assets/cover-die-with-a-smile.jpg" alt="" />
+            <span><b id="ccTitle">Die With A Smile</b><small>Spotify</small></span>
+          </button>
+          <button type="button" class="cc-btn wide" id="muteBtn">sound</button>
+        </div>
+
+        <section class="scr is-on" id="lock">
+          <img class="wp" id="lockWp" src="assets/wallpaper.jpg" alt="" />
+          <div class="lock-ui">
+            <div class="lock-time" id="lt">12:00</div>
+            <div class="lock-date" id="ld"></div>
+            <p class="herclock">her time · <b id="herT">18:00</b> <small>+6h</small></p>
+            <form id="unlock">
+              <p class="hint" id="lockHint">hint: the mean-cute name she hits you with. a lot.</p>
+              <input id="pw" type="password" autocomplete="off" inputmode="text" placeholder="Enter Passcode" />
+              <button type="submit">OK</button>
+              <p class="err" id="err" hidden>nuh. try the nickname.</p>
+            </form>
+          </div>
+        </section>
+
+        <section class="scr" id="home">
+          <div class="ios-home">
+            <div class="wgrid" id="wgrid">
+              <div class="iwid" data-wid="herTime">
+                <small id="herTimeLabel">Her time</small>
+                <b id="herT3">18:00</b>
+                <span id="herTimeSub">Partly fairy · +6h</span>
+              </div>
+              <div class="iwid" data-wid="myTime">
+                <small id="myTimeLabel">My time</small>
+                <b id="myTime">12:00</b>
+                <span id="myTimeSub">right here</span>
+              </div>
+              <div class="iwid heart-wid" data-wid="miss" data-span="2">
+                <small id="missLabel">miss you</small>
+                <b id="missValue">100%</b>
+                <span class="miss-bar"><i id="missFill"></i></span>
+              </div>
+              <div class="iwid bday-wid" data-wid="bday" data-span="2">
+                <small>her birthday</small>
+                <b id="bdayDate">21 December</b>
+                <span id="bdayLeft">days left</span>
+              </div>
+            </div>
+            <div class="grid">
+              <button class="app" type="button" data-app="mail"><i class="i i-mail"></i><span>Mail</span></button>
+              <button class="app" type="button" data-app="notes"><i class="i i-notes"></i><span>Notes</span></button>
+              <button class="app" type="button" data-app="maps"><i class="i i-map"></i><span>Maps</span></button>
+              <button class="app" type="button" data-app="calc"><i class="i i-calc"></i><span>Calc</span></button>
+              <button class="app" type="button" data-app="web"><i class="i i-web"></i><span>Safari</span></button>
+              <button class="app" type="button" data-app="settings"><i class="i i-set"></i><span>Settings</span></button>
+            </div>
+            <div class="dock">
+              <button class="app" type="button" data-app="msg"><i class="i i-wa"></i></button>
+              <button class="app" type="button" data-app="web"><i class="i i-web"></i></button>
+              <button class="app" type="button" data-app="music"><i class="i i-mu"></i></button>
+              <button class="app" type="button" data-app="settings"><i class="i i-set"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="scr app-layer safari" id="web">
+          <header class="sf-head">
+            <button class="back" type="button">‹</button>
+            <div class="sf-url" id="sfUrl">rinn.garden</div>
+          </header>
+          <div class="sf-start" id="sfStart">
+            <p class="sf-k">Favourites</p>
+            <button class="fav" id="openMeadow" type="button">
+              <span class="fav-ic">❀</span>
+              <b id="meadowTitle">the meadow</b>
+              <small id="meadowSub">the first letter · keep this tab</small>
+            </button>
+            <p class="sf-hint" id="meadowHint">that site is in here. tap it.</p>
+          </div>
+        </section>
+
+        <section class="scr app-layer wa" id="msg">
+          <header class="wa-head">
+            <button class="back" type="button">‹</button>
+            <div class="ava">S</div>
+            <div class="wa-who">
+              <b id="waName">stink</b>
+              <small>online · her <span id="herT2">18:00</span></small>
+            </div>
+            <span class="dot" id="typing" hidden></span>
+          </header>
+          <div class="thread" id="thread"></div>
+          <div class="wa-bar"><span>+</span><span class="wa-in">tap the chat</span><span>🎤</span></div>
+        </section>
+
+        <section class="scr app-layer app-scr" id="mail">
+          <header><button class="back" type="button">‹</button> Mail</header>
+          <button class="env" id="envBtn" type="button">
+            <img src="assets/envelope.jpg" alt="" />
+            <span>1 unread · open</span>
+          </button>
+          <article class="letter" id="letter" hidden>
+            <p id="mailLetter"></p>
+          </article>
+        </section>
+
+        <section class="scr app-layer app-scr" id="notes">
+          <header><button class="back" type="button">‹</button> Notes</header>
+          <button class="row" data-note="list" type="button">shopping (ignore)</button>
+          <button class="row" data-note="pass" type="button">wifi · •••••</button>
+          <button class="row hot" data-note="dusk" type="button">don’t open till later</button>
+          <article class="sheet parch" id="noteSheet" hidden>
+            <button class="back" data-close type="button">‹</button>
+            <div id="noteBody"></div>
+          </article>
+        </section>
+
+        <section class="scr app-layer app-scr" id="photos">
+          <header><button class="back" type="button">‹</button> Recents</header>
+          <div class="album">
+            <figure class="pola"><img src="assets/pola-window.jpg" alt="" /><figcaption>your window</figcaption></figure>
+            <figure class="pola"><img src="assets/pola-cups.jpg" alt="" /><figcaption>two cups</figcaption></figure>
+            <figure class="pola"><img src="assets/pola-tape.jpg" alt="" /><figcaption>a tape</figcaption></figure>
+            <figure class="pola"><img src="assets/melody-meadow.jpg" alt="" /><figcaption>the woods</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="scr app-layer app-scr maps-app" id="maps">
+          <header><button class="back" type="button">‹</button> Maps</header>
+          <div class="voh">
+            <div class="voh-map" id="vohMap">
+              <canvas id="vohGlobe" aria-hidden="true"></canvas>
+              <iframe
+                id="vohFrame"
+                title="Heart of Voh"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=-20.93763,164.65849&z=18&t=k&hl=en&output=embed"
+              ></iframe>
+              <i class="voh-pin" id="vohPin" aria-hidden="true"></i>
+            </div>
+            <div class="voh-card">
+              <small>New Caledonia</small>
+              <b>Cœur de Voh</b>
+              <p>20°56′15.47″S · 164°39′30.56″E</p>
+              <p class="voh-note" id="mapsCap">a mangrove that learned how to be a heart. far. still a date.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="scr app-layer app-scr spotify" id="music">
+          <div class="spot-bg" aria-hidden="true"><img id="spotBgImg" class="song-cover" src="assets/cover-die-with-a-smile.jpg" alt="" /></div>
+          <div class="spot-scroll">
+          <header><button class="back" type="button">‹</button> Spotify</header>
+          <div class="player">
+            <div class="mini-art big">
+              <img class="cover cover-xl song-cover" src="assets/cover-die-with-a-smile.jpg" alt="" />
+            </div>
+            <b id="musicTitle">Die With A Smile</b>
+            <small id="musicArtist">Lady Gaga, Bruno Mars</small>
+            <div class="seek-row">
+              <input type="range" id="appSeek" min="0" max="1000" value="0" />
+              <span id="appTime">0:00</span>
+            </div>
+            <div class="mini-controls music-controls">
+              <button type="button" id="appPrev" aria-label="previous">⏮</button>
+              <button class="play" id="play" type="button">play</button>
+              <button type="button" id="appNext" aria-label="next">⏭</button>
+            </div>
+          </div>
+          <p class="lib-label">Liked songs</p>
+          <div class="lib" id="lib"></div>
+          </div>
+        </section>
+
+        <section class="scr app-layer app-scr dusk-scr" id="dusk">
+          <header><button class="back" type="button">‹</button> Dusk</header>
+          <img class="pix" src="assets/pixie.png" alt="" />
+          <p class="story" id="duskStory">tap the fireflies. they’re shy.</p>
+          <div class="flies" id="flies"></div>
+          <p id="duskLog">0 / 5</p>
+        </section>
+
+        <section class="scr app-layer app-scr calc-app" id="calc">
+          <header><button class="back" type="button">‹</button> Calculator</header>
+          <div class="eq" aria-label="You plus me">
+            <span>You</span>
+            <em>+</em>
+            <span>Me</span>
+            <em>=</em>
+            <strong>?</strong>
+          </div>
+          <p class="eq-sub">solve it in person.</p>
+        </section>
+
+        <section class="scr app-layer app-scr" id="settings">
+          <header><button class="back" type="button">‹</button> Settings</header>
+          <p class="ios-label">General</p>
+          <div class="ios-group">
+            <div class="ios-row">Wi-Fi<span>Rinn’s dusk</span></div>
+            <div class="ios-row">Bluetooth<span>On</span></div>
+            <div class="ios-row">Safari<span>the meadow</span></div>
+          </div>
+          <p class="ios-label">Time</p>
+          <div class="ios-group">
+            <div class="ios-row">You<span id="setYou">12:00</span></div>
+            <div class="ios-row">Rinn (+6h)<span id="setHer">18:00</span></div>
+          </div>
+          <p class="ios-label">Developer</p>
+          <div class="ios-group">
+            <button class="ios-row hot" id="adminOpen" type="button">Admin Mode</button>
+          </div>
+          <article class="sheet" id="adminSheet" hidden>
+            <button class="back" id="adminBack" type="button">‹</button>
+            <p class="ios-label">Admin</p>
+            <p class="hint dark">password is what you call her. fairy one.</p>
+            <form id="adminForm">
+              <input id="adminPw" type="password" placeholder="password" />
+              <button type="submit">enter</button>
+            </form>
+            <p class="err" id="adminErr" hidden>nuh.</p>
+            <div id="adminOk" hidden>
+              <p class="ios-label">Edit</p>
+              <div class="admin-tabs">
+                <button type="button" class="on" data-ed="phone">Phone</button>
+                <button type="button" data-ed="meadow">Meadow</button>
+              </div>
+              <div id="edPhone" class="ed-pane"></div>
+              <div id="edMeadow" class="ed-pane" hidden></div>
+              <button type="button" class="save-btn" id="adminSave">save changes</button>
+              <p class="admin-msg" id="adminSaveMsg"></p>
+            </div>
+          </article>
+        </section>
+
+        <button class="home-ind" id="homeBtn" type="button" aria-label="home"></button>
+        </div>
+      </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="portal" id="portal" hidden>
+      <div class="portal-ink" aria-hidden="true"></div>
+      <iframe id="meadowFrame" title="the meadow" src="about:blank"></iframe>
+      <i class="portal-lens" id="portalLens" aria-hidden="true"></i>
+      <button class="portal-back" id="closePortal" type="button">back to phone</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

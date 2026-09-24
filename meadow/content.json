@@ -1,0 +1,175 @@
+{
+  "title": "for Rinn",
+  "herName": "Rinn",
+  "signOff": "your man",
+  "callApp": "the app we already use",
+  "greeting": "Princess,",
+  "oneTrueThing": "",
+  "load": {
+    "kicker": "a story",
+    "title": "once, far away",
+    "lede": "not a castle. just a clearing. and you.",
+    "tap": "tap to open",
+    "forYou": "<span style=\"font-family:'Great Vibes', cursive;font-size:84px;color:rgb(122, 101, 112)\">For you Tinkerbell</span>",
+    "love": "I love you,<br><br>hopefully that sweet face<br>of yours is smilling at the moment.<br><br>all I want is for you to be happy,<br>my princess.",
+    "loveNext": "continue"
+  },
+  "sky": {
+    "kicker": "Tinkerbell",
+    "title": "<span style=\"font-weight:700;font-size:61px;background-color:transparent\">Miles apart, yet you still live inside my heart.</span>",
+    "here": "here",
+    "there": "there",
+    "thereTime": "your time",
+    "withYou": "my time",
+    "lede": "",
+    "next": "go on princess, keep walking"
+  },
+  "story": {
+    "kicker": "chapter one",
+    "title": "<span style=\"font-size:46px\">Tinkerbell &amp; The Old man</span>",
+    "lede": "one is cute. one is bald.",
+    "body": "",
+    "next": "turn the page",
+    "back": "turn back"
+  },
+  "color": {
+    "kicker": "her magic",
+    "title": "Pink or Blue,<br>I know you like em two.",
+    "lede": "pick a color sweetheart",
+    "pinkHint": "",
+    "pinkLabel": "pink",
+    "blueHint": "",
+    "blueLabel": "blue"
+  },
+  "play": {
+    "kicker": "the errand",
+    "title": "touch the heart like you touched mine.",
+    "lede": "make sure to fill it up",
+    "skip": "",
+    "tap": "tap me"
+  },
+  "letter": {
+    "kicker": "the true part",
+    "tap": "break the seal.",
+    "continue": "turn the page",
+    "body": "With the time that passed and which we spent together, my love. I gotta tell you that you have become my favorite person. I cant start nor end my day without you being part of it.<br><br>If only there was a way to wrap you in my arms, and hold you tightly against me. Just looking at you makes me realize how lucky I got to be to have such a sweet and charming girl by my side, and to call her mine.<br><br>Alone a single thought about you makes me feel content, you stole my heart princess. And for nothing on this world would I want anyone else to hold and embrace it.\n\nHopefully all of this managed to put a smile on that pretty face of yours, you mean the world to me.<br><br>I love you"
+  },
+  "ask": {
+    "kicker": "the question",
+    "title": "Do you want to be mine?",
+    "lede": "and dont even try to click on no, it wont work.",
+    "yes": "Yes please",
+    "no": "nah",
+    "mercy": "nice try. you're mine either way."
+  },
+  "date": {
+    "kicker": "chapter two",
+    "title": "not a kingdom.<br>just an hour.",
+    "lede": "i'll come to your time. pick the vibe, then a window.",
+    "kindLabel": "the date",
+    "whenLabel": "when",
+    "lock": "that's our date",
+    "kinds": {
+      "movie": "same movie",
+      "walk": "walk + talk",
+      "questions": "20 questions"
+    },
+    "whens": {
+      "weeknight": "a weeknight",
+      "weekend": "this weekend",
+      "you": "you pick"
+    },
+    "kindFull": {
+      "movie": "same movie, two cities, one call",
+      "walk": "a walk together, phones up",
+      "questions": "twenty questions. no skipping"
+    },
+    "whenFull": {
+      "weeknight": "some weeknight",
+      "weekend": "this weekend",
+      "you": "whenever you say"
+    }
+  },
+  "yes": {
+    "kicker": "kept",
+    "title": "",
+    "textMe": "",
+    "appLine": ""
+  },
+  "kind": {
+    "kicker": "still glad",
+    "title": "okay.<br>thanks for opening the book.",
+    "lede": "you can close it. i liked writing this for you anyway."
+  },
+  "look": {
+    "sky": "vines",
+    "pages": {
+      "open": "vines"
+    },
+    "blocks": {
+      "sky.title": {
+        "x": 0.00390625,
+        "y": 15.200000000000003,
+        "size": "61px",
+        "enter": "float",
+        "exit": ""
+      },
+      "sky.kicker": {
+        "x": 0,
+        "y": -54.5,
+        "size": "",
+        "enter": "",
+        "exit": ""
+      },
+      "story.title": {
+        "x": 0,
+        "y": 0,
+        "size": "46px",
+        "align": "left",
+        "enter": "",
+        "exit": ""
+      }
+    },
+    "slides": {
+      "sky": {
+        "enter": "dissolve",
+        "exit": "dissolve"
+      },
+      "love": {
+        "enter": "dissolve",
+        "exit": "dissolve"
+      }
+    },
+    "order": [
+      "open",
+      "love",
+      "sky",
+      "story",
+      "color",
+      "play",
+      "ask",
+      "letter"
+    ]
+  },
+  "images": {
+    "doorPink": "assets/sky.jpg",
+    "doorBlue": "assets/moon.jpg",
+    "finale": "assets/storybook.jpg",
+    "forest": "assets/melody-meadow.jpg",
+    "clouds": "assets/melody-clouds.jpg",
+    "bow": "assets/bow.png",
+    "berry": "assets/berry.png",
+    "daisy": "assets/daisy.png",
+    "bunny": "assets/bear-hearts.png",
+    "hood": "assets/bear-hug.png",
+    "bear": "assets/bear-hug.png",
+    "bell": "assets/hearts.png",
+    "seal": "assets/seal.png",
+    "fairy": "assets/pixie.png",
+    "lantern": "assets/bear-hearts.png",
+    "hearts": "assets/hearts.png",
+    "bearHug": "assets/bear-hug.png",
+    "bearHearts": "assets/bear-hearts.png"
+  },
+  "savedAt": 1790267705063
+}
