@@ -298,6 +298,7 @@ function show(id, skipOut) {
     }
     $$(".panel").forEach((p) => p.classList.remove("is-on", "is-dusting", "is-leaving", "ppt-enter", "ppt-leave"));
     if (next) {
+      next.hidden = false;
       applyContent(CONTENT);
       paintAppLine();
       applyBlocks(next);
@@ -669,8 +670,11 @@ noBtn.addEventListener("click", (e) => {
   e.preventDefault();
   evade();
 });
-$("[data-yes]")?.addEventListener("click", () => {
+$("[data-yes]")?.addEventListener("click", (e) => {
+  e.preventDefault();
   boom(innerWidth / 2, innerHeight / 2);
+  const next = nextAfter("ask");
+  show(next && next !== "ask" ? next : "date");
 });
 
 $$("[data-kind]").forEach((c) =>
@@ -701,19 +705,16 @@ lockBtn?.addEventListener("click", () => {
   $(".picked").textContent = `${CONTENT.date.kindFull[state.dateKind]}. ${CONTENT.date.whenFull[state.when]}.`;
   $("#app-line").textContent = (CONTENT.yes.appLine || "").replace("{callApp}", CONTENT.callApp);
   boom(innerWidth / 2, innerHeight * 0.4);
+  show("yes");
 });
 
 function clocks() {
   const d = new Date();
-  const h = String(d.getHours()).padStart(2, "0");
-  const m = String(d.getMinutes()).padStart(2, "0");
+  const opts = { hour: "2-digit", minute: "2-digit", hourCycle: "h23" };
   const el = $("#clockHere");
-  if (el) el.textContent = `${h}:${m}`;
-  const hers = new Date(d.getTime() + 6 * 60 * 60 * 1000);
-  const hh = String(hers.getHours()).padStart(2, "0");
-  const hm = String(hers.getMinutes()).padStart(2, "0");
+  if (el) el.textContent = d.toLocaleTimeString("en-GB", { ...opts, timeZone: "Europe/Berlin" });
   const there = $("#clockThere");
-  if (there) there.textContent = `${hh}:${hm}`;
+  if (there) there.textContent = d.toLocaleTimeString("en-GB", { ...opts, timeZone: "Asia/Singapore" });
 }
 clocks();
 setInterval(clocks, 15000);

@@ -60,26 +60,44 @@ function renderStickers() {
   });
 }
 
-function fmt(d) {
-  return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+const HIS_TZ = "Europe/Berlin";
+const HER_TZ = "Asia/Singapore";
+
+function fmtZone(timeZone, date = new Date()) {
+  return new Intl.DateTimeFormat("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+    timeZone,
+  }).format(date);
+}
+function ymdZone(timeZone, date = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const n = (type) => Number(parts.find((p) => p.type === type).value);
+  return { y: n("year"), m: n("month"), d: n("day") };
 }
 function tick() {
   const n = new Date();
-  const hers = new Date(n.getTime() + 6 * 3600 * 1000);
-  const herClock = fmt(hers);
-  const hisClock = fmt(n);
+  const herClock = fmtZone(HER_TZ, n);
+  const hisClock = fmtZone(HIS_TZ, n);
   $("#t").textContent = herClock.replace(/\s/g, "");
   $("#lt").textContent = herClock;
   $("#ld").textContent =
     phoneContent.lockDate ||
-    hers.toLocaleDateString([], { weekday: "long", month: "long", day: "numeric" });
+    n.toLocaleDateString([], { weekday: "long", month: "long", day: "numeric", timeZone: HER_TZ });
   ["herT", "herT2", "herT3", "setHer"].forEach((id) => {
     const el = $("#" + id);
     if (el) el.textContent = herClock;
   });
   if ($("#setYou")) $("#setYou").textContent = hisClock;
   if ($("#myTime")) $("#myTime").textContent = hisClock;
-  const bday = daysUntilBirthday(hers);
+  const { y, m, d } = ymdZone(HER_TZ, n);
+  const bday = daysUntilBirthday(y, m, d);
   if ($("#bdayDate")) $("#bdayDate").textContent = "21 December";
   if ($("#bdayLeft")) {
     $("#bdayLeft").textContent =
@@ -87,10 +105,10 @@ function tick() {
   }
 }
 
-function daysUntilBirthday(from) {
-  const today = new Date(from.getFullYear(), from.getMonth(), from.getDate());
-  let next = new Date(from.getFullYear(), 11, 21);
-  if (today > next) next = new Date(from.getFullYear() + 1, 11, 21);
+function daysUntilBirthday(y, m, d) {
+  const today = Date.UTC(y, m - 1, d);
+  let next = Date.UTC(y, 11, 21);
+  if (today > next) next = Date.UTC(y + 1, 11, 21);
   return Math.round((next - today) / 86400000);
 }
 

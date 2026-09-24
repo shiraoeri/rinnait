@@ -92,9 +92,9 @@
   },
   "yes": {
     "kicker": "kept",
-    "title": "",
-    "textMe": "",
-    "appLine": ""
+    "title": "okay. the story's ours now.",
+    "textMe": "text me yes too. i wanna see it pop up for real. not just in a forest.",
+    "appLine": "i'll be there on {callApp}. your timezone. i'll show up."
   },
   "kind": {
     "kicker": "still glad",
